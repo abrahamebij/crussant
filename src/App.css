@@ -69,6 +69,126 @@
   font-weight: 500;
 }
 
+/* Site Navbar (WildCrumb Reference Pattern) */
+.site-navbar {
+  position: fixed;
+  top: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: 92%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1.2rem;
+  background: rgba(20, 14, 10, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Far Left: Standalone Logo Wordmark */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  background: transparent;
+}
+
+.logo-flame {
+  color: #FF8A1E;
+  font-size: 1.1rem;
+}
+
+.logo-text {
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #FFF8EC;
+  letter-spacing: 1.5px;
+}
+
+/* Center: Grouped Single Pill Nav Container */
+.nav-pill-container {
+  background: #1C120B;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 30px;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav-pill-item {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+  color: #FFF8EC;
+  font-weight: bold;
+  font-size: 0.88rem;
+  padding: 0.45rem 1.15rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.nav-pill-item:hover {
+  color: #FF8A1E;
+}
+
+.nav-pill-item.active {
+  background: #FF8A1E;
+  color: #1C120B;
+  box-shadow: 0 4px 15px rgba(255, 138, 30, 0.4);
+}
+
+/* Far Right: Compact Circular Icon Cluster */
+.nav-icon-cluster {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #1C120B;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFF8EC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.icon-btn:hover {
+  background: rgba(255, 138, 30, 0.2);
+  border-color: #FF8A1E;
+  color: #FF8A1E;
+  transform: translateY(-2px);
+}
+
+.icon-btn-cta {
+  background: #FF8A1E;
+  color: #1C120B;
+  border: none;
+  box-shadow: 0 4px 15px rgba(255, 138, 30, 0.4);
+}
+
+.icon-btn-cta:hover {
+  background: #ff9d3b;
+  color: #1C120B;
+  box-shadow: 0 6px 20px rgba(255, 138, 30, 0.6);
+  transform: translateY(-2px);
+}
+
 /* Page Layout & Continuous Scroll Track */
 .main-wrapper {
   position: relative;
@@ -165,11 +285,19 @@
 }
 
 @media (max-width: 640px) {
+  .site-navbar {
+    width: 95%;
+    padding: 0.5rem 0.8rem;
+  }
+  .nav-pill-item {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  .icon-btn {
+    width: 34px;
+    height: 34px;
+  }
   .comic-headline {
     font-size: 1.7rem;
-  }
-  .btn-amber-glow {
-    padding: 0.75rem 1.6rem;
-    font-size: 0.95rem;
   }
 }

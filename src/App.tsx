@@ -1,4 +1,5 @@
 import { BackgroundCanvas } from './components/BackgroundCanvas';
+import { Navbar } from './components/Navbar';
 import { TextOverlays } from './components/TextOverlays';
 import { useScrollSequence } from './hooks/useScrollSequence';
 import './App.css';
@@ -12,10 +13,13 @@ export function App() {
 
   return (
     <>
+      {/* WildCrumb-Style Grouped Pill Navbar */}
+      {!isLoading && <Navbar scrollProgress={scrollProgress} />}
+
       {/* Full-bleed Canvas Background (Pinned full viewport) */}
       <BackgroundCanvas currentFrame={currentFrame} />
 
-      {/* Atmospheric Text Overlay Moments (GSAP / ScrollTrigger scroll-percentage driven) */}
+      {/* Atmospheric Text Overlay Moments */}
       {!isLoading && <TextOverlays scrollProgress={scrollProgress} />}
 
       {/* Initial Loading Screen Overlay */}
