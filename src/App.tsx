@@ -1,9 +1,11 @@
 import { BackgroundCanvas } from './components/BackgroundCanvas';
+import { TextOverlays } from './components/TextOverlays';
 import { useScrollSequence } from './hooks/useScrollSequence';
 import './App.css';
 
 export function App() {
-  const { currentFrame, isLoading, loadingProgress, totalFrames } = useScrollSequence();
+  const { currentFrame, isLoading, loadingProgress, totalFrames, scrollProgress } =
+    useScrollSequence();
 
   // Pacing: allocate 60px of vertical scroll per frame for smooth deliberate scrubbing
   const containerHeight = Math.max(3000, totalFrames * 60);
@@ -12,6 +14,9 @@ export function App() {
     <>
       {/* Full-bleed Canvas Background (Pinned full viewport) */}
       <BackgroundCanvas currentFrame={currentFrame} />
+
+      {/* Atmospheric Text Overlay Moments (GSAP / ScrollTrigger scroll-percentage driven) */}
+      {!isLoading && <TextOverlays scrollProgress={scrollProgress} />}
 
       {/* Initial Loading Screen Overlay */}
       <div className={`loading-screen ${!isLoading ? 'hidden' : ''}`}>
@@ -28,7 +33,7 @@ export function App() {
         </div>
       </div>
 
-      {/* Single Continuous Scroll Track (No nav, no sections, no footer) */}
+      {/* Single Continuous Scroll Track */}
       <main className="main-wrapper">
         <div
           className="continuous-scroll-track"

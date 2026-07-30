@@ -19,7 +19,7 @@
 }
 
 .loading-box {
-  background: rgba(22, 17, 13, 0.75);
+  background: rgba(22, 17, 13, 0.85);
   border: 1px solid rgba(242, 176, 94, 0.25);
   backdrop-filter: blur(20px);
   padding: 2.5rem 3rem;
@@ -31,10 +31,10 @@
 }
 
 .loading-brand {
-  font-family: var(--font-serif);
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
   font-size: 2.4rem;
-  font-weight: 700;
-  letter-spacing: 4px;
+  font-weight: bold;
+  letter-spacing: 2px;
   color: var(--color-gold);
   margin-bottom: 0.5rem;
 }
@@ -79,4 +79,97 @@
 .continuous-scroll-track {
   width: 100%;
   pointer-events: none;
+}
+
+/* Text Overlays Wrapper */
+.text-overlay-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comic-moment {
+  position: absolute;
+  width: 90%;
+  max-width: 650px;
+  box-sizing: border-box;
+  padding: 1rem;
+  opacity: 0;
+  will-change: transform, opacity;
+  pointer-events: none;
+  text-align: center;
+  left: 50%;
+}
+
+/* Moment 1: Top Position */
+.moment-top {
+  top: 10%;
+  transform: translateX(-50%);
+}
+
+/* Moment 2: Mid Position */
+.moment-mid {
+  top: 12%;
+  transform: translateX(-50%);
+}
+
+/* Moment 3: Center Position */
+.moment-center {
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* White Comic Sans Headline */
+.comic-headline {
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: bold;
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 
+    0 4px 18px rgba(0, 0, 0, 0.95),
+    0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+/* Interactive Pill CTA Button for Moment 3 */
+.btn-amber-glow {
+  margin-top: 1.5rem;
+  display: inline-block;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+  background: linear-gradient(135deg, #d97724 0%, #f2b05e 100%);
+  color: #0e0a07;
+  font-size: 1.05rem;
+  font-weight: bold;
+  padding: 0.9rem 2.2rem;
+  border-radius: 35px;
+  border: none;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, filter 0.3s ease;
+  box-shadow: 0 10px 30px rgba(217, 119, 36, 0.45);
+}
+
+.btn-amber-glow:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 15px 45px rgba(242, 176, 94, 0.75);
+  filter: brightness(1.1);
+}
+
+.btn-amber-glow:active {
+  transform: translateY(0) scale(0.98);
+}
+
+@media (max-width: 640px) {
+  .comic-headline {
+    font-size: 1.7rem;
+  }
+  .btn-amber-glow {
+    padding: 0.75rem 1.6rem;
+    font-size: 0.95rem;
+  }
 }
