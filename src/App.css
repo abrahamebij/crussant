@@ -69,7 +69,7 @@
   font-weight: 600;
 }
 
-/* Site Navbar (Reference Style: Clean, Floating, Transparent) */
+/* Site Navbar (Clean, Floating, Transparent) */
 .site-navbar {
   position: fixed;
   top: 1.5rem;
@@ -92,7 +92,6 @@
   pointer-events: auto;
 }
 
-/* Logo on Far Left */
 .nav-logo {
   text-decoration: none;
   display: flex;
@@ -108,7 +107,6 @@
   text-transform: uppercase;
 }
 
-/* Center Links */
 .nav-links-clean {
   display: flex;
   align-items: center;
@@ -137,7 +135,6 @@
   border-bottom: 2px solid #ff4b2b;
 }
 
-/* Right Group: Cart & Order Button */
 .nav-right-group {
   display: flex;
   align-items: center;
@@ -184,7 +181,7 @@
   box-shadow: 0 6px 20px rgba(230, 57, 32, 0.5);
 }
 
-/* Page Layout & Continuous Scroll Track */
+/* Main Page Flow */
 .main-wrapper {
   position: relative;
   z-index: 1;
@@ -196,7 +193,7 @@
   pointer-events: none;
 }
 
-/* Text Overlays Wrapper */
+/* Text Overlays Wrapper (Hero Scroll-Scrub Moments) */
 .text-overlay-wrapper {
   position: fixed;
   inset: 0;
@@ -210,7 +207,6 @@
   pointer-events: none;
 }
 
-/* Segment 1: Center Opening Hero */
 .segment-center-hero {
   position: absolute;
   top: 50%;
@@ -221,7 +217,6 @@
   max-width: 800px;
 }
 
-/* Segment 2: Left-Aligned Story Moment */
 .segment-left {
   position: absolute;
   top: 48%;
@@ -232,7 +227,6 @@
   max-width: 480px;
 }
 
-/* Segment 3: Right-Aligned Provenance Moment */
 .segment-right {
   position: absolute;
   top: 48%;
@@ -243,7 +237,6 @@
   max-width: 480px;
 }
 
-/* Segment 4: Center Final Climax */
 .segment-center-final {
   position: absolute;
   top: 50%;
@@ -254,7 +247,6 @@
   max-width: 800px;
 }
 
-/* Cinematic Bold Headline */
 .cinematic-headline {
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
   font-size: clamp(2.4rem, 5.5vw, 4.4rem);
@@ -269,7 +261,6 @@
     0 2px 8px rgba(0, 0, 0, 0.9);
 }
 
-/* Cinematic Clean Subtext */
 .cinematic-subtext {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: clamp(0.95rem, 1.35vw, 1.15rem);
@@ -287,7 +278,6 @@
   margin-right: auto;
 }
 
-/* Interactive Action Button for Final Moment */
 .btn-cinematic-cta {
   margin-top: 1.75rem;
   display: inline-block;
@@ -312,23 +302,500 @@
   box-shadow: 0 12px 40px rgba(230, 57, 32, 0.7);
 }
 
-.btn-cinematic-cta:active {
-  transform: translateY(0) scale(0.98);
+/* ============================================================
+   SECTION 2: SIGNATURE BAKES / MENU (Screenshots 1 & 2)
+   ============================================================ */
+.signature-section {
+  position: relative;
+  z-index: 20;
+  background: #080604;
+  padding: 7rem 1.5rem 6rem;
+}
+
+.section-container {
+  width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.section-header-split {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 3.5rem;
+  gap: 2rem;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #e63920;
+  margin-bottom: 0.6rem;
+}
+
+.section-title {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1;
+}
+
+.section-desc {
+  max-width: 460px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.product-card {
+  background: rgba(20, 16, 13, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(230, 57, 32, 0.4);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.product-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #110e0b;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.05);
+}
+
+.product-price-badge {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: rgba(8, 6, 4, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+}
+
+.product-info {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-name {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 0.6rem;
+}
+
+.product-desc {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 1.6rem;
+  flex: 1;
+}
+
+.btn-add-cart {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  padding: 0.8rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-add-cart:hover {
+  background: #e63920;
+  border-color: #e63920;
+  color: #ffffff;
+}
+
+.btn-add-cart.added {
+  background: #1b7a3e;
+  border-color: #1b7a3e;
+  color: #ffffff;
+}
+
+/* ============================================================
+   SECTION 3: INTERACTIVE ATELIER (Screenshot 3)
+   ============================================================ */
+.atelier-section {
+  position: relative;
+  z-index: 20;
+  background: #0d0a07;
+  padding: 7rem 1.5rem 6rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.atelier-split {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.platter-frame {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.platter-img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.platter-live-tag {
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(14, 10, 8, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.4rem 1.1rem;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e63920;
+  animation: pulseLive 1.5s infinite;
+}
+
+@keyframes pulseLive {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.7; }
+}
+
+.config-group {
+  margin-top: 2rem;
+}
+
+.config-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.8rem;
+}
+
+.size-selector-pills {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.size-pill {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 0.85rem 0.5rem;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  transition: all 0.25s ease;
+}
+
+.size-pill.active {
+  background: rgba(230, 57, 32, 0.15);
+  border-color: #e63920;
+}
+
+.size-letter {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.size-meta {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+}
+
+.addons-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.addon-tile {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.addon-tile.selected {
+  background: rgba(230, 57, 32, 0.15);
+  border-color: rgba(230, 57, 32, 0.6);
+}
+
+.addon-check {
+  font-weight: 900;
+  width: 24px;
+  color: #e63920;
+}
+
+.addon-name {
+  flex: 1;
+  text-align: left;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.addon-price {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 700;
+}
+
+.config-footer {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.total-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.total-val {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.btn-build-box {
+  background: #e63920;
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  padding: 0.9rem 2.2rem;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 25px rgba(230, 57, 32, 0.4);
+}
+
+.btn-build-box:hover {
+  background: #ff472c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(230, 57, 32, 0.6);
+}
+
+.btn-build-box.ordered {
+  background: #1b7a3e;
+}
+
+/* ============================================================
+   SECTION 4: CHEF PHILOSOPHY QUOTE (Screenshot 4)
+   ============================================================ */
+.quote-section {
+  position: relative;
+  z-index: 20;
+  background: #060403;
+  padding: 9rem 1.5rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.quote-container {
+  width: 90%;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.editorial-quote {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.35;
+  color: #ffffff;
+  margin: 0 0 2rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+}
+
+.editorial-author {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #e63920;
+  font-style: normal;
+}
+
+/* ============================================================
+   SECTION 5: THE LAST BITE HOOK (Screenshot 5)
+   ============================================================ */
+.last-bite-section {
+  position: relative;
+  z-index: 20;
+  background: #090705;
+  padding: 8rem 1.5rem 10rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.last-bite-container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.last-bite-tag {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+}
+
+.last-bite-headline {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(3rem, 7.5vw, 6.2rem);
+  font-weight: 900;
+  line-height: 0.92;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 2.5rem;
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.95);
+}
+
+.text-red-accent {
+  color: #e63920;
+  text-shadow: 0 0 40px rgba(230, 57, 32, 0.45);
+}
+
+.btn-order-large {
+  background: #e63920;
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  padding: 1.1rem 3rem;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 35px rgba(230, 57, 32, 0.5);
+}
+
+.btn-order-large:hover {
+  background: #ff472c;
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 15px 45px rgba(230, 57, 32, 0.7);
 }
 
 @media (max-width: 860px) {
-  .nav-links-clean {
-    display: none;
+  .section-header-split {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
-  .segment-left,
-  .segment-right {
-    left: 50%;
-    right: auto;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    max-width: 90%;
+  .atelier-split {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
-  .cinematic-headline {
-    font-size: clamp(2rem, 6vw, 3rem);
+  .config-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn-build-box {
+    width: 100%;
   }
 }

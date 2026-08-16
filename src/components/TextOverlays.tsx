@@ -2,9 +2,10 @@ import React, { useEffect, useRef } from 'react';
 
 interface TextOverlaysProps {
   scrollProgress: number;
+  isBeyondHero?: boolean;
 }
 
-export const TextOverlays: React.FC<TextOverlaysProps> = ({ scrollProgress }) => {
+export const TextOverlays: React.FC<TextOverlaysProps> = ({ scrollProgress, isBeyondHero }) => {
   const m1Ref = useRef<HTMLDivElement | null>(null);
   const m2Ref = useRef<HTMLDivElement | null>(null);
   const m3Ref = useRef<HTMLDivElement | null>(null);
@@ -12,6 +13,14 @@ export const TextOverlays: React.FC<TextOverlaysProps> = ({ scrollProgress }) =>
 
   useEffect(() => {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (isBeyondHero) {
+      if (m1Ref.current) m1Ref.current.style.opacity = '0';
+      if (m2Ref.current) m2Ref.current.style.opacity = '0';
+      if (m3Ref.current) m3Ref.current.style.opacity = '0';
+      if (m4Ref.current) m4Ref.current.style.opacity = '0';
+      return;
+    }
 
     if (reducedMotion) {
       if (m1Ref.current) m1Ref.current.style.opacity = '0';
@@ -81,8 +90,10 @@ export const TextOverlays: React.FC<TextOverlaysProps> = ({ scrollProgress }) =>
 
     // Moment 4: Center Climax ("TASTE THE TRADITION") - 78% to 100%
     let op4 = 0;
-    if (scrollProgress >= 0.77) {
+    if (scrollProgress >= 0.77 && scrollProgress < 0.98) {
       op4 = Math.min(1, (scrollProgress - 0.77) / 0.12);
+    } else if (scrollProgress >= 0.98) {
+      op4 = Math.max(0, 1 - (scrollProgress - 0.98) / 0.02);
     }
     if (m4Ref.current) {
       m4Ref.current.style.opacity = op4.toFixed(3);
@@ -92,7 +103,7 @@ export const TextOverlays: React.FC<TextOverlaysProps> = ({ scrollProgress }) =>
       m4Ref.current.style.transform = `translate(-50%, -50%) translateY(${translateY}px) scale(${scale})`;
       m4Ref.current.style.pointerEvents = op4 > 0.4 ? 'auto' : 'none';
     }
-  }, [scrollProgress]);
+  }, [scrollProgress, isBeyondHero]);
 
   return (
     <div className="text-overlay-wrapper">
@@ -134,9 +145,12 @@ export const TextOverlays: React.FC<TextOverlaysProps> = ({ scrollProgress }) =>
         </p>
         <button
           className="btn-cinematic-cta"
-          onClick={() => alert('Order Placed! Your fresh bakes are reserved.')}
+          onClick={() => {
+            const menuEl = document.getElementById('section-menu');
+            if (menuEl) menuEl.scrollIntoView({ behavior: 'smooth' });
+          }}
         >
-          ORDER FRESH
+          EXPLORE BAKES ↓
         </button>
       </div>
     </div>

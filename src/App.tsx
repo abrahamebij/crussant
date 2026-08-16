@@ -1,6 +1,10 @@
 import { BackgroundCanvas } from './components/BackgroundCanvas';
 import { Navbar } from './components/Navbar';
 import { TextOverlays } from './components/TextOverlays';
+import { SignatureBakes } from './components/SignatureBakes';
+import { InteractiveAtelier } from './components/InteractiveAtelier';
+import { EditorialQuote } from './components/EditorialQuote';
+import { LastBiteHook } from './components/LastBiteHook';
 import { useScrollSequence } from './hooks/useScrollSequence';
 import './App.css';
 
@@ -8,18 +12,18 @@ export function App() {
   const { currentFrame, isLoading, loadingProgress, totalFrames, scrollProgress } =
     useScrollSequence();
 
-  // Pacing: allocate 60px of vertical scroll per frame for smooth deliberate scrubbing
-  const containerHeight = Math.max(3000, totalFrames * 60);
+  // Allocate 50px of vertical scroll per frame for smooth deliberate hero scrubbing
+  const heroScrollHeight = Math.max(3000, totalFrames * 50);
 
   return (
     <>
-      {/* WildCrumb-Style Grouped Pill Navbar */}
+      {/* Top Floating Navbar */}
       {!isLoading && <Navbar scrollProgress={scrollProgress} />}
 
-      {/* Full-bleed Canvas Background (Pinned full viewport) */}
+      {/* Full-bleed Canvas Background (Pinned during hero animation) */}
       <BackgroundCanvas currentFrame={currentFrame} />
 
-      {/* Atmospheric Text Overlay Moments */}
+      {/* Atmospheric Hero Text Overlay Moments */}
       {!isLoading && <TextOverlays scrollProgress={scrollProgress} />}
 
       {/* Initial Loading Screen Overlay */}
@@ -37,12 +41,26 @@ export function App() {
         </div>
       </div>
 
-      {/* Single Continuous Scroll Track */}
+      {/* Main Page Flow */}
       <main className="main-wrapper">
+        {/* 1. Hero Continuous Scroll Track */}
         <div
+          id="section-hero"
           className="continuous-scroll-track"
-          style={{ height: `${containerHeight}px` }}
+          style={{ height: `${heroScrollHeight}px` }}
         />
+
+        {/* 2. Signature Bakes / Menu Section (Screenshots 1 & 2) */}
+        <SignatureBakes />
+
+        {/* 3. Interactive Atelier / Custom Box Builder (Screenshot 3) */}
+        <InteractiveAtelier />
+
+        {/* 4. Chef Philosophy Quote (Screenshot 4) */}
+        <EditorialQuote />
+
+        {/* 5. The Last Bite Hook (Screenshot 5) */}
+        <LastBiteHook />
       </main>
     </>
   );

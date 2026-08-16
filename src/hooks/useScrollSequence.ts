@@ -7,7 +7,8 @@ export interface UseScrollSequenceReturn {
   loadingProgress: number; // 0 to 100
   totalFrames: number;
   currentFrameIndex: number;
-  scrollProgress: number; // 0.0 to 1.0
+  scrollProgress: number; // 0.0 to 1.0 within hero track
+  isBeyondHero: boolean;
 }
 
 const SEQUENCE_FOLDERS = [
@@ -23,6 +24,7 @@ export function useScrollSequence(): UseScrollSequenceReturn {
   const [currentFrame, setCurrentFrame] = useState<HTMLImageElement | null>(null);
   const [currentFrameIndex, setCurrentFrameIndex] = useState<number>(0);
   const [scrollProgress, setScrollProgress] = useState<number>(0);
+  const [isBeyondHero, setIsBeyondHero] = useState<boolean>(false);
 
   // Preload continuous WebP frame sequence across all folders
   useEffect(() => {
@@ -46,18 +48,24 @@ export function useScrollSequence(): UseScrollSequenceReturn {
     };
   }, []);
 
-  // Map total page scroll linearly to single continuous frame index
+  // Map hero scroll track linearly to continuous frame index
   useEffect(() => {
     if (isLoading || allFrames.length === 0) return;
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-      const progress = Math.max(0, Math.min(1, scrollY / maxScroll));
+      const heroEl = document.getElementById('section-hero');
+      if (!heroEl) return;
+
+      const heroRect = heroEl.getBoundingClientRect();
+      const heroHeight = heroEl.offsetHeight;
+      const totalHeroScroll = Math.max(1, heroHeight - window.innerHeight);
+      const currentScroll = -heroRect.top;
+      const progress = Math.max(0, Math.min(1, currentScroll / totalHeroScroll));
 
       setScrollProgress(progress);
+      setIsBeyondHero(heroRect.bottom <= window.innerHeight * 0.4);
 
       if (reducedMotion) {
         const lastIdx = allFrames.length - 1;
@@ -86,5 +94,6 @@ export function useScrollSequence(): UseScrollSequenceReturn {
     totalFrames: allFrames.length,
     currentFrameIndex,
     scrollProgress,
+    isBeyondHero,
   };
 }

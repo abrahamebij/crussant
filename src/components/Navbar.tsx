@@ -1,35 +1,55 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface NavbarProps {
   scrollProgress: number;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ scrollProgress }) => {
-  let activeLink = 'menu';
-  if (scrollProgress >= 0.22 && scrollProgress < 0.50) {
-    activeLink = 'story';
-  } else if (scrollProgress >= 0.50 && scrollProgress < 0.77) {
-    activeLink = 'provenance';
-  } else if (scrollProgress >= 0.77) {
-    activeLink = 'contact';
-  }
+export const Navbar: React.FC<NavbarProps> = () => {
+  const [activeSection, setActiveSection] = useState('hero');
 
-  const scrollToPercentage = (targetPercent: number) => {
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    window.scrollTo({
-      top: maxScroll * targetPercent,
-      behavior: 'smooth',
-    });
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const vh = window.innerHeight;
+
+      const menuEl = document.getElementById('section-menu');
+      const atelierEl = document.getElementById('section-atelier');
+      const storyEl = document.getElementById('section-story');
+      const hookEl = document.getElementById('section-hook');
+
+      if (hookEl && hookEl.getBoundingClientRect().top <= vh * 0.4) {
+        setActiveSection('contact');
+      } else if (storyEl && storyEl.getBoundingClientRect().top <= vh * 0.4) {
+        setActiveSection('story');
+      } else if (atelierEl && atelierEl.getBoundingClientRect().top <= vh * 0.4) {
+        setActiveSection('atelier');
+      } else if (menuEl && menuEl.getBoundingClientRect().top <= vh * 0.4) {
+        setActiveSection('menu');
+      } else {
+        setActiveSection('hero');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
     <header className="site-navbar">
       {/* Brand Logo on Left */}
       <a
-        href="#top"
+        href="#section-hero"
         onClick={(e) => {
           e.preventDefault();
-          scrollToPercentage(0);
+          scrollToSection('section-hero');
         }}
         className="nav-logo"
       >
@@ -39,26 +59,26 @@ export const Navbar: React.FC<NavbarProps> = ({ scrollProgress }) => {
       {/* Center Nav Links */}
       <nav className="nav-links-clean">
         <button
-          className={`nav-link-btn ${activeLink === 'menu' ? 'active' : ''}`}
-          onClick={() => scrollToPercentage(0)}
+          className={`nav-link-btn ${activeSection === 'menu' ? 'active' : ''}`}
+          onClick={() => scrollToSection('section-menu')}
         >
           Menu
         </button>
         <button
-          className={`nav-link-btn ${activeLink === 'story' ? 'active' : ''}`}
-          onClick={() => scrollToPercentage(0.35)}
+          className={`nav-link-btn ${activeSection === 'atelier' ? 'active' : ''}`}
+          onClick={() => scrollToSection('section-atelier')}
+        >
+          Atelier
+        </button>
+        <button
+          className={`nav-link-btn ${activeSection === 'story' ? 'active' : ''}`}
+          onClick={() => scrollToSection('section-story')}
         >
           Story
         </button>
         <button
-          className={`nav-link-btn ${activeLink === 'provenance' ? 'active' : ''}`}
-          onClick={() => scrollToPercentage(0.63)}
-        >
-          Local
-        </button>
-        <button
-          className={`nav-link-btn ${activeLink === 'contact' ? 'active' : ''}`}
-          onClick={() => scrollToPercentage(0.9)}
+          className={`nav-link-btn ${activeSection === 'contact' ? 'active' : ''}`}
+          onClick={() => scrollToSection('section-hook')}
         >
           Contact
         </button>
@@ -89,7 +109,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrollProgress }) => {
 
         <button
           className="btn-order-pill"
-          onClick={() => scrollToPercentage(0.9)}
+          onClick={() => scrollToSection('section-hook')}
         >
           ORDER NOW
         </button>
