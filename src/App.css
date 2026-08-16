@@ -58,7 +58,7 @@
 
 .progress-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, #ff5722 0%, #ff8a1e 100%);
+  background: linear-gradient(90deg, #d97724 0%, #ff8a1e 100%);
   transition: width 0.2s ease-out;
   border-radius: 3px;
 }
@@ -132,7 +132,7 @@
 
 .nav-link-btn.active {
   color: #ffffff;
-  border-bottom: 2px solid #ff4b2b;
+  border-bottom: 2px solid #ff8a1e;
 }
 
 .nav-right-group {
@@ -161,8 +161,8 @@
 }
 
 .btn-order-pill {
-  background: #e63920;
-  color: #ffffff;
+  background: #ff8a1e;
+  color: #110e0b;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 800;
   font-size: 0.82rem;
@@ -172,13 +172,13 @@
   border: none;
   cursor: pointer;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 15px rgba(230, 57, 32, 0.35);
+  box-shadow: 0 4px 15px rgba(255, 138, 30, 0.35);
 }
 
 .btn-order-pill:hover {
-  background: #ff472c;
+  background: #ffa347;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(230, 57, 32, 0.5);
+  box-shadow: 0 6px 20px rgba(255, 138, 30, 0.55);
 }
 
 /* Main Page Flow */
@@ -282,8 +282,8 @@
   margin-top: 1.75rem;
   display: inline-block;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background: #e63920;
-  color: #ffffff;
+  background: #ff8a1e;
+  color: #110e0b;
   font-size: 0.95rem;
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -293,13 +293,13 @@
   cursor: pointer;
   pointer-events: auto;
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background 0.3s ease;
-  box-shadow: 0 8px 30px rgba(230, 57, 32, 0.45);
+  box-shadow: 0 8px 30px rgba(255, 138, 30, 0.45);
 }
 
 .btn-cinematic-cta:hover {
   transform: translateY(-3px) scale(1.04);
-  background: #ff472c;
-  box-shadow: 0 12px 40px rgba(230, 57, 32, 0.7);
+  background: #ffa347;
+  box-shadow: 0 12px 40px rgba(255, 138, 30, 0.7);
 }
 
 /* ============================================================
@@ -332,7 +332,7 @@
   font-weight: 800;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #e63920;
+  color: #ff8a1e;
   margin-bottom: 0.6rem;
 }
 
@@ -373,7 +373,7 @@
 
 .product-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(230, 57, 32, 0.4);
+  border-color: rgba(255, 138, 30, 0.45);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
 }
 
@@ -450,9 +450,9 @@
 }
 
 .btn-add-cart:hover {
-  background: #e63920;
-  border-color: #e63920;
-  color: #ffffff;
+  background: #ff8a1e;
+  border-color: #ff8a1e;
+  color: #110e0b;
 }
 
 .btn-add-cart.added {
@@ -520,7 +520,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #e63920;
+  background: #ff8a1e;
   animation: pulseLive 1.5s infinite;
 }
 
@@ -564,8 +564,8 @@
 }
 
 .size-pill.active {
-  background: rgba(230, 57, 32, 0.15);
-  border-color: #e63920;
+  background: rgba(255, 138, 30, 0.15);
+  border-color: #ff8a1e;
 }
 
 .size-letter {
@@ -601,14 +601,14 @@
 }
 
 .addon-tile.selected {
-  background: rgba(230, 57, 32, 0.15);
-  border-color: rgba(230, 57, 32, 0.6);
+  background: rgba(255, 138, 30, 0.15);
+  border-color: rgba(255, 138, 30, 0.6);
 }
 
 .addon-check {
   font-weight: 900;
   width: 24px;
-  color: #e63920;
+  color: #ff8a1e;
 }
 
 .addon-name {
@@ -650,8 +650,8 @@
 }
 
 .btn-build-box {
-  background: #e63920;
-  color: #ffffff;
+  background: #ff8a1e;
+  color: #110e0b;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 800;
   font-size: 0.9rem;
@@ -661,17 +661,18 @@
   border: none;
   cursor: pointer;
   transition: all 0.25s ease;
-  box-shadow: 0 6px 25px rgba(230, 57, 32, 0.4);
+  box-shadow: 0 6px 25px rgba(255, 138, 30, 0.4);
 }
 
 .btn-build-box:hover {
-  background: #ff472c;
+  background: #ffa347;
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(230, 57, 32, 0.6);
+  box-shadow: 0 8px 30px rgba(255, 138, 30, 0.6);
 }
 
 .btn-build-box.ordered {
   background: #1b7a3e;
+  color: #ffffff;
 }
 
 /* ============================================================
@@ -710,7 +711,7 @@
   font-weight: 800;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #e63920;
+  color: #ff8a1e;
   font-style: normal;
 }
 
@@ -755,14 +756,14 @@
   text-shadow: 0 10px 40px rgba(0, 0, 0, 0.95);
 }
 
-.text-red-accent {
-  color: #e63920;
-  text-shadow: 0 0 40px rgba(230, 57, 32, 0.45);
+.text-orange-accent {
+  color: #ff8a1e;
+  text-shadow: 0 0 40px rgba(255, 138, 30, 0.45);
 }
 
 .btn-order-large {
-  background: #e63920;
-  color: #ffffff;
+  background: #ff8a1e;
+  color: #110e0b;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 800;
   font-size: 1.05rem;
@@ -772,16 +773,30 @@
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 35px rgba(230, 57, 32, 0.5);
+  box-shadow: 0 10px 35px rgba(255, 138, 30, 0.5);
 }
 
 .btn-order-large:hover {
-  background: #ff472c;
+  background: #ffa347;
   transform: translateY(-3px) scale(1.04);
-  box-shadow: 0 15px 45px rgba(230, 57, 32, 0.7);
+  box-shadow: 0 15px 45px rgba(255, 138, 30, 0.7);
 }
 
 @media (max-width: 860px) {
+  .nav-links-clean {
+    display: none;
+  }
+  .segment-left,
+  .segment-right {
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 90%;
+  }
+  .cinematic-headline {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
   .section-header-split {
     flex-direction: column;
     align-items: flex-start;
@@ -866,8 +881,9 @@
 }
 
 .social-icon-btn:hover {
-  background: #e63920;
-  border-color: #e63920;
+  background: #ff8a1e;
+  border-color: #ff8a1e;
+  color: #110e0b;
   transform: translateY(-2px);
 }
 
@@ -921,7 +937,7 @@
 
 .info-meta {
   font-size: 0.82rem;
-  color: #e63920;
+  color: #ff8a1e;
   font-weight: 600;
 }
 
@@ -951,12 +967,12 @@
 }
 
 .newsletter-input:focus {
-  border-color: #e63920;
+  border-color: #ff8a1e;
 }
 
 .btn-newsletter {
-  background: #e63920;
-  color: #ffffff;
+  background: #ff8a1e;
+  color: #110e0b;
   border: none;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 800;
@@ -969,7 +985,7 @@
 }
 
 .btn-newsletter:hover {
-  background: #ff472c;
+  background: #ffa347;
 }
 
 .footer-bottom-bar {
@@ -1011,7 +1027,7 @@
 }
 
 .btn-back-to-top:hover {
-  color: #e63920;
+  color: #ff8a1e;
 }
 
 @media (max-width: 992px) {

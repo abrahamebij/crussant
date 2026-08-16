@@ -7,7 +7,7 @@ export const LastBiteHook: React.FC = () => {
         <span className="last-bite-tag">THE LAST BITE</span>
         <h2 className="last-bite-headline">
           ONE BITE AND <br />
-          <span className="text-red-accent">YOU'RE HOOKED.</span>
+          <span className="text-orange-accent">YOU'RE HOOKED.</span>
         </h2>
         <div className="last-bite-cta-wrap">
           <button
