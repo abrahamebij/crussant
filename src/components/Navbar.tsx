@@ -5,12 +5,13 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ scrollProgress }) => {
-  // Map current scroll progress to active nav link highlight
   let activeLink = 'menu';
-  if (scrollProgress >= 0.33 && scrollProgress < 0.68) {
+  if (scrollProgress >= 0.22 && scrollProgress < 0.50) {
     activeLink = 'story';
-  } else if (scrollProgress >= 0.68) {
-    activeLink = 'visit';
+  } else if (scrollProgress >= 0.50 && scrollProgress < 0.77) {
+    activeLink = 'provenance';
+  } else if (scrollProgress >= 0.77) {
+    activeLink = 'contact';
   }
 
   const scrollToPercentage = (targetPercent: number) => {
@@ -23,7 +24,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrollProgress }) => {
 
   return (
     <header className="site-navbar">
-      {/* Far Left: Standalone Logo Wordmark */}
+      {/* Brand Logo on Left */}
       <a
         href="#top"
         onClick={(e) => {
@@ -32,82 +33,43 @@ export const Navbar: React.FC<NavbarProps> = ({ scrollProgress }) => {
         }}
         className="nav-logo"
       >
-        <span className="logo-flame">✦</span>
         <span className="logo-text">CRUSSANT</span>
       </a>
 
-      {/* Center / Center-Right: Grouped Single Pill Nav Container */}
-      <nav className="nav-pill-container">
+      {/* Center Nav Links */}
+      <nav className="nav-links-clean">
         <button
-          className={`nav-pill-item ${activeLink === 'menu' ? 'active' : ''}`}
+          className={`nav-link-btn ${activeLink === 'menu' ? 'active' : ''}`}
           onClick={() => scrollToPercentage(0)}
         >
           Menu
         </button>
         <button
-          className={`nav-pill-item ${activeLink === 'story' ? 'active' : ''}`}
-          onClick={() => scrollToPercentage(0.45)}
+          className={`nav-link-btn ${activeLink === 'story' ? 'active' : ''}`}
+          onClick={() => scrollToPercentage(0.35)}
         >
-          Our Story
+          Story
         </button>
         <button
-          className={`nav-pill-item ${activeLink === 'visit' ? 'active' : ''}`}
-          onClick={() => scrollToPercentage(0.85)}
+          className={`nav-link-btn ${activeLink === 'provenance' ? 'active' : ''}`}
+          onClick={() => scrollToPercentage(0.63)}
         >
-          Visit
+          Local
+        </button>
+        <button
+          className={`nav-link-btn ${activeLink === 'contact' ? 'active' : ''}`}
+          onClick={() => scrollToPercentage(0.9)}
+        >
+          Contact
         </button>
       </nav>
 
-      {/* Far Right: Compact Circular Icon Cluster */}
-      <div className="nav-icon-cluster">
-        {/* Instagram Icon Button */}
+      {/* Right Side: Cart Icon & Order Pill */}
+      <div className="nav-right-group">
         <button
-          className="icon-btn"
-          title="Instagram"
-          onClick={() => alert('Instagram: @crussant.atelier')}
-        >
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-          </svg>
-        </button>
-
-        {/* Location Icon Button */}
-        <button
-          className="icon-btn"
-          title="Atelier Location"
-          onClick={() => scrollToPercentage(0.85)}
-        >
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-            <circle cx="12" cy="10" r="3" />
-          </svg>
-        </button>
-
-        {/* Cart / Order CTA Icon Button (Amber Accent) */}
-        <button
-          className="icon-btn icon-btn-cta"
-          title="Order Fresh Bakes"
-          onClick={() => alert('Reservation cart opened! Reserve your box.')}
+          className="nav-cart-btn"
+          title="Shopping Cart"
+          onClick={() => alert('Your cart has 1 fresh baked item.')}
         >
           <svg
             width="18"
@@ -119,10 +81,17 @@ export const Navbar: React.FC<NavbarProps> = ({ scrollProgress }) => {
             strokeLinecap="round"
             strokeLinejoin="round"
           >
-            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <path d="M16 10a4 4 0 0 1-8 0" />
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
           </svg>
+        </button>
+
+        <button
+          className="btn-order-pill"
+          onClick={() => scrollToPercentage(0.9)}
+        >
+          ORDER NOW
         </button>
       </div>
     </header>

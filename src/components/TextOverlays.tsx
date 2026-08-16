@@ -8,6 +8,7 @@ export const TextOverlays: React.FC<TextOverlaysProps> = ({ scrollProgress }) =>
   const m1Ref = useRef<HTMLDivElement | null>(null);
   const m2Ref = useRef<HTMLDivElement | null>(null);
   const m3Ref = useRef<HTMLDivElement | null>(null);
+  const m4Ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -15,10 +16,11 @@ export const TextOverlays: React.FC<TextOverlaysProps> = ({ scrollProgress }) =>
     if (reducedMotion) {
       if (m1Ref.current) m1Ref.current.style.opacity = '0';
       if (m2Ref.current) m2Ref.current.style.opacity = '0';
-      if (m3Ref.current) {
-        m3Ref.current.style.opacity = '1';
-        m3Ref.current.style.transform = 'translate(-50%, -50%) scale(1)';
-        m3Ref.current.style.pointerEvents = 'auto';
+      if (m3Ref.current) m3Ref.current.style.opacity = '0';
+      if (m4Ref.current) {
+        m4Ref.current.style.opacity = '1';
+        m4Ref.current.style.transform = 'translate(-50%, -50%) scale(1)';
+        m4Ref.current.style.pointerEvents = 'auto';
       }
       return;
     }
@@ -41,55 +43,100 @@ export const TextOverlays: React.FC<TextOverlaysProps> = ({ scrollProgress }) =>
       return 0;
     };
 
-    // Moment 1 (Early scroll: 4% - 28%)
-    const op1 = calculateOpacity(scrollProgress, 0.04, 0.12, 0.2, 0.28);
+    const getRangeProgress = (progress: number, start: number, end: number) => {
+      if (progress <= start) return 0;
+      if (progress >= end) return 1;
+      return (progress - start) / (end - start);
+    };
+
+    // Moment 1: Center Intro ("THE PERFECT BAKE") - 0% to 20%
+    const op1 = calculateOpacity(scrollProgress, 0.0, 0.04, 0.14, 0.20);
     if (m1Ref.current) {
       m1Ref.current.style.opacity = op1.toFixed(3);
-      const scale1 = 1.04 - op1 * 0.04;
-      m1Ref.current.style.transform = `translate(-50%, 0) scale(${scale1})`;
+      const r1 = getRangeProgress(scrollProgress, 0.0, 0.20);
+      const translateY = (1 - op1) * 20 - r1 * 15;
+      const scale = 1.02 - r1 * 0.04;
+      m1Ref.current.style.transform = `translate(-50%, -50%) translateY(${translateY}px) scale(${scale})`;
     }
 
-    // Moment 2 (Mid scroll: 38% - 66%)
-    const op2 = calculateOpacity(scrollProgress, 0.38, 0.46, 0.58, 0.66);
+    // Moment 2: Left Side ("TIME IS AN INGREDIENT") - 23% to 48%
+    const op2 = calculateOpacity(scrollProgress, 0.23, 0.30, 0.42, 0.49);
     if (m2Ref.current) {
       m2Ref.current.style.opacity = op2.toFixed(3);
-      const scale2 = 1.04 - op2 * 0.04;
-      m2Ref.current.style.transform = `translate(-50%, 0) scale(${scale2})`;
+      const r2 = getRangeProgress(scrollProgress, 0.23, 0.49);
+      const translateX = (1 - op2) * -30;
+      const translateY = 15 - r2 * 30;
+      m2Ref.current.style.transform = `translateY(${translateY}px) translateX(${translateX}px)`;
     }
 
-    // Moment 3 (Late scroll: 74% - 100%)
-    let op3 = 0;
-    if (scrollProgress >= 0.74) {
-      op3 = Math.min(1, (scrollProgress - 0.74) / 0.13);
-    }
+    // Moment 3: Right Side ("PUREST PROVENANCE") - 51% to 75%
+    const op3 = calculateOpacity(scrollProgress, 0.51, 0.58, 0.68, 0.75);
     if (m3Ref.current) {
       m3Ref.current.style.opacity = op3.toFixed(3);
-      const scale3 = 1.04 - op3 * 0.04;
-      m3Ref.current.style.transform = `translate(-50%, -50%) scale(${scale3})`;
-      m3Ref.current.style.pointerEvents = op3 > 0.4 ? 'auto' : 'none';
+      const r3 = getRangeProgress(scrollProgress, 0.51, 0.75);
+      const translateX = (1 - op3) * 30;
+      const translateY = 15 - r3 * 30;
+      m3Ref.current.style.transform = `translateY(${translateY}px) translateX(${translateX}px)`;
+    }
+
+    // Moment 4: Center Climax ("TASTE THE TRADITION") - 78% to 100%
+    let op4 = 0;
+    if (scrollProgress >= 0.77) {
+      op4 = Math.min(1, (scrollProgress - 0.77) / 0.12);
+    }
+    if (m4Ref.current) {
+      m4Ref.current.style.opacity = op4.toFixed(3);
+      const r4 = getRangeProgress(scrollProgress, 0.77, 0.98);
+      const translateY = (1 - op4) * 30;
+      const scale = 1.04 - r4 * 0.04;
+      m4Ref.current.style.transform = `translate(-50%, -50%) translateY(${translateY}px) scale(${scale})`;
+      m4Ref.current.style.pointerEvents = op4 > 0.4 ? 'auto' : 'none';
     }
   }, [scrollProgress]);
 
   return (
     <div className="text-overlay-wrapper">
-      {/* Moment 1: Early Scroll */}
-      <div ref={m1Ref} className="comic-moment moment-top">
-        <h2 className="comic-headline">72-Hour Cold Ferment</h2>
+      {/* Moment 1: Center Opening Hero */}
+      <div ref={m1Ref} className="overlay-segment segment-center-hero">
+        <h1 className="cinematic-headline">THE PERFECT BAKE</h1>
+        <p className="cinematic-subtext">
+          Artisanal French viennoiserie, crafted from scratch every dawn.
+        </p>
       </div>
 
-      {/* Moment 2: Mid Scroll */}
-      <div ref={m2Ref} className="comic-moment moment-mid">
-        <h2 className="comic-headline">81 Delicate Layers</h2>
+      {/* Moment 2: Left-Aligned Story Moment */}
+      <div ref={m2Ref} className="overlay-segment segment-left">
+        <h2 className="cinematic-headline">
+          TIME IS AN <br />
+          INGREDIENT
+        </h2>
+        <p className="cinematic-subtext">
+          72-hour slow cold fermentation develops a deep wild aroma and 81 distinct honeycomb layers.
+        </p>
       </div>
 
-      {/* Moment 3: Late Scroll */}
-      <div ref={m3Ref} className="comic-moment moment-center">
-        <h2 className="comic-headline">Golden Perfection</h2>
+      {/* Moment 3: Right-Aligned Provenance Moment */}
+      <div ref={m3Ref} className="overlay-segment segment-right">
+        <h2 className="cinematic-headline">
+          PUREST <br />
+          PROVENANCE
+        </h2>
+        <p className="cinematic-subtext">
+          84% PDO Normandy butter layered inside stone-milled heirloom organic French wheat.
+        </p>
+      </div>
+
+      {/* Moment 4: Center Climax with Action Button */}
+      <div ref={m4Ref} className="overlay-segment segment-center-final">
+        <h2 className="cinematic-headline">TASTE THE TRADITION</h2>
+        <p className="cinematic-subtext">
+          Fresh from our stone hearth atelier. Hot morning & noon batches daily.
+        </p>
         <button
-          className="btn-amber-glow"
-          onClick={() => alert('Reservation confirmed! Fresh bakes reserved.')}
+          className="btn-cinematic-cta"
+          onClick={() => alert('Order Placed! Your fresh bakes are reserved.')}
         >
-          Reserve Your Fresh Bake
+          ORDER FRESH
         </button>
       </div>
     </div>

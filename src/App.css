@@ -3,7 +3,7 @@
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: radial-gradient(circle at center, #1b140e 0%, #080604 100%);
+  background: radial-gradient(circle at center, #16110d 0%, #060504 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,29 +19,29 @@
 }
 
 .loading-box {
-  background: rgba(22, 17, 13, 0.85);
-  border: 1px solid rgba(242, 176, 94, 0.25);
+  background: rgba(18, 14, 11, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(20px);
   padding: 2.5rem 3rem;
   border-radius: 16px;
   text-align: center;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
   max-width: 420px;
   width: 90%;
 }
 
 .loading-brand {
-  font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
-  font-size: 2.4rem;
-  font-weight: bold;
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
   letter-spacing: 2px;
-  color: var(--color-gold);
+  color: #ffffff;
   margin-bottom: 0.5rem;
 }
 
 .loading-subtext {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  color: #b3a59d;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -49,7 +49,7 @@
 
 .progress-bar-track {
   width: 100%;
-  height: 6px;
+  height: 5px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 3px;
   overflow: hidden;
@@ -58,135 +58,130 @@
 
 .progress-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, #d97724 0%, #f2b05e 100%);
+  background: linear-gradient(90deg, #ff5722 0%, #ff8a1e 100%);
   transition: width 0.2s ease-out;
   border-radius: 3px;
 }
 
 .progress-status {
   font-size: 0.85rem;
-  color: var(--color-gold-light);
-  font-weight: 500;
+  color: #fff;
+  font-weight: 600;
 }
 
-/* Site Navbar (WildCrumb Reference Pattern) */
+/* Site Navbar (Reference Style: Clean, Floating, Transparent) */
 .site-navbar {
   position: fixed;
-  top: 1.25rem;
+  top: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
   width: 92%;
-  max-width: 1200px;
+  max-width: 1300px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.6rem 1.2rem;
-  background: rgba(20, 14, 10, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: 40px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  padding: 0;
+  background: transparent;
+  pointer-events: none;
 }
 
-/* Far Left: Standalone Logo Wordmark */
+.nav-logo,
+.nav-links-clean,
+.nav-right-group {
+  pointer-events: auto;
+}
+
+/* Logo on Far Left */
 .nav-logo {
+  text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  text-decoration: none;
-  background: transparent;
-}
-
-.logo-flame {
-  color: #FF8A1E;
-  font-size: 1.1rem;
 }
 
 .logo-text {
-  font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
-  font-weight: bold;
-  font-size: 1.25rem;
-  color: #FFF8EC;
-  letter-spacing: 1.5px;
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 900;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-transform: uppercase;
 }
 
-/* Center: Grouped Single Pill Nav Container */
-.nav-pill-container {
-  background: #1C120B;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 30px;
-  padding: 0.25rem;
+/* Center Links */
+.nav-links-clean {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 2rem;
 }
 
-.nav-pill-item {
+.nav-link-btn {
   background: transparent;
   border: none;
   outline: none;
   cursor: pointer;
-  font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
-  color: #FFF8EC;
-  font-weight: bold;
-  font-size: 0.88rem;
-  padding: 0.45rem 1.15rem;
-  border-radius: 20px;
-  transition: all 0.3s ease;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.25s ease;
+  padding: 0.2rem 0;
 }
 
-.nav-pill-item:hover {
-  color: #FF8A1E;
+.nav-link-btn:hover {
+  color: #ffffff;
 }
 
-.nav-pill-item.active {
-  background: #FF8A1E;
-  color: #1C120B;
-  box-shadow: 0 4px 15px rgba(255, 138, 30, 0.4);
+.nav-link-btn.active {
+  color: #ffffff;
+  border-bottom: 2px solid #ff4b2b;
 }
 
-/* Far Right: Compact Circular Icon Cluster */
-.nav-icon-cluster {
+/* Right Group: Cart & Order Button */
+.nav-right-group {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 1rem;
 }
 
-.icon-btn {
-  width: 40px;
-  height: 40px;
+.nav-cart-btn {
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: #1C120B;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #FFF8EC;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
-.icon-btn:hover {
-  background: rgba(255, 138, 30, 0.2);
-  border-color: #FF8A1E;
-  color: #FF8A1E;
+.nav-cart-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
   transform: translateY(-2px);
 }
 
-.icon-btn-cta {
-  background: #FF8A1E;
-  color: #1C120B;
+.btn-order-pill {
+  background: #e63920;
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  padding: 0.6rem 1.4rem;
+  border-radius: 25px;
   border: none;
-  box-shadow: 0 4px 15px rgba(255, 138, 30, 0.4);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(230, 57, 32, 0.35);
 }
 
-.icon-btn-cta:hover {
-  background: #ff9d3b;
-  color: #1C120B;
-  box-shadow: 0 6px 20px rgba(255, 138, 30, 0.6);
+.btn-order-pill:hover {
+  background: #ff472c;
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(230, 57, 32, 0.5);
 }
 
 /* Page Layout & Continuous Scroll Track */
@@ -207,97 +202,133 @@
   inset: 0;
   z-index: 10;
   pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.comic-moment {
-  position: absolute;
-  width: 90%;
-  max-width: 650px;
-  box-sizing: border-box;
-  padding: 1rem;
+.overlay-segment {
   opacity: 0;
   will-change: transform, opacity;
   pointer-events: none;
-  text-align: center;
-  left: 50%;
 }
 
-/* Moment 1: Top Position */
-.moment-top {
-  top: 10%;
-  transform: translateX(-50%);
-}
-
-/* Moment 2: Mid Position */
-.moment-mid {
-  top: 12%;
-  transform: translateX(-50%);
-}
-
-/* Moment 3: Center Position */
-.moment-center {
+/* Segment 1: Center Opening Hero */
+.segment-center-hero {
+  position: absolute;
   top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+  max-width: 800px;
 }
 
-/* White Comic Sans Headline */
-.comic-headline {
-  font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
-  font-size: clamp(2rem, 4.5vw, 3rem);
-  font-weight: bold;
-  line-height: 1.15;
+/* Segment 2: Left-Aligned Story Moment */
+.segment-left {
+  position: absolute;
+  top: 48%;
+  left: 8%;
+  transform: translateY(-50%);
+  text-align: left;
+  width: 90%;
+  max-width: 480px;
+}
+
+/* Segment 3: Right-Aligned Provenance Moment */
+.segment-right {
+  position: absolute;
+  top: 48%;
+  right: 8%;
+  transform: translateY(-50%);
+  text-align: left;
+  width: 90%;
+  max-width: 480px;
+}
+
+/* Segment 4: Center Final Climax */
+.segment-center-final {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+  max-width: 800px;
+}
+
+/* Cinematic Bold Headline */
+.cinematic-headline {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+  font-weight: 900;
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
   color: #ffffff;
   margin: 0;
   text-shadow: 
-    0 4px 18px rgba(0, 0, 0, 0.95),
-    0 2px 6px rgba(0, 0, 0, 0.9);
+    0 4px 25px rgba(0, 0, 0, 0.95),
+    0 2px 8px rgba(0, 0, 0, 0.9);
 }
 
-/* Interactive Pill CTA Button for Moment 3 */
-.btn-amber-glow {
-  margin-top: 1.5rem;
+/* Cinematic Clean Subtext */
+.cinematic-subtext {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(0.95rem, 1.35vw, 1.15rem);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 0.85rem;
+  margin-bottom: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+}
+
+.segment-center-hero .cinematic-subtext,
+.segment-center-final .cinematic-subtext {
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Interactive Action Button for Final Moment */
+.btn-cinematic-cta {
+  margin-top: 1.75rem;
   display: inline-block;
-  font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
-  background: linear-gradient(135deg, #d97724 0%, #f2b05e 100%);
-  color: #0e0a07;
-  font-size: 1.05rem;
-  font-weight: bold;
-  padding: 0.9rem 2.2rem;
-  border-radius: 35px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #e63920;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 0.95rem 2.5rem;
+  border-radius: 40px;
   border: none;
   cursor: pointer;
   pointer-events: auto;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, filter 0.3s ease;
-  box-shadow: 0 10px 30px rgba(217, 119, 36, 0.45);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background 0.3s ease;
+  box-shadow: 0 8px 30px rgba(230, 57, 32, 0.45);
 }
 
-.btn-amber-glow:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 15px 45px rgba(242, 176, 94, 0.75);
-  filter: brightness(1.1);
+.btn-cinematic-cta:hover {
+  transform: translateY(-3px) scale(1.04);
+  background: #ff472c;
+  box-shadow: 0 12px 40px rgba(230, 57, 32, 0.7);
 }
 
-.btn-amber-glow:active {
+.btn-cinematic-cta:active {
   transform: translateY(0) scale(0.98);
 }
 
-@media (max-width: 640px) {
-  .site-navbar {
-    width: 95%;
-    padding: 0.5rem 0.8rem;
+@media (max-width: 860px) {
+  .nav-links-clean {
+    display: none;
   }
-  .nav-pill-item {
-    padding: 0.35rem 0.75rem;
-    font-size: 0.8rem;
+  .segment-left,
+  .segment-right {
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 90%;
   }
-  .icon-btn {
-    width: 34px;
-    height: 34px;
-  }
-  .comic-headline {
-    font-size: 1.7rem;
+  .cinematic-headline {
+    font-size: clamp(2rem, 6vw, 3rem);
   }
 }
