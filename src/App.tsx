@@ -30,6 +30,7 @@ export function App() {
       {/* Initial Loading Screen Overlay */}
       <div className={`loading-screen ${!isLoading ? 'hidden' : ''}`}>
         <div className="loading-box">
+          <img src="/logo.png" alt="Crussant Logo" className="loading-logo-img" />
           <div className="loading-brand">CRUSSANT</div>
           <div className="loading-subtext">Preloading Continuous Sequence</div>
           <div className="progress-bar-track">

@@ -9,7 +9,6 @@ export const Navbar: React.FC<NavbarProps> = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
       const vh = window.innerHeight;
 
       const menuEl = document.getElementById('section-menu');
@@ -53,6 +52,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
         }}
         className="nav-logo"
       >
+        <img src="/logo.png" alt="Crussant Logo" className="nav-logo-img" />
         <span className="logo-text">CRUSSANT</span>
       </a>
 

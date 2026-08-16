@@ -27,6 +27,7 @@ export const Footer: React.FC = () => {
           {/* Column 1: Brand & Bio */}
           <div className="footer-col footer-brand-col">
             <a href="#section-hero" onClick={scrollToTop} className="footer-logo">
+              <img src="/logo.png" alt="Crussant Logo" className="footer-logo-img" />
               <span className="footer-logo-text">CRUSSANT</span>
             </a>
             <p className="footer-tagline">
