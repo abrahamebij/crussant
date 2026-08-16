@@ -5,6 +5,7 @@ import { SignatureBakes } from './components/SignatureBakes';
 import { InteractiveAtelier } from './components/InteractiveAtelier';
 import { EditorialQuote } from './components/EditorialQuote';
 import { LastBiteHook } from './components/LastBiteHook';
+import { Footer } from './components/Footer';
 import { useScrollSequence } from './hooks/useScrollSequence';
 import './App.css';
 
@@ -61,6 +62,9 @@ export function App() {
 
         {/* 5. The Last Bite Hook (Screenshot 5) */}
         <LastBiteHook />
+
+        {/* 6. Footer Section */}
+        <Footer />
       </main>
     </>
   );
