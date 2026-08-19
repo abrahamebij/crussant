@@ -20,24 +20,28 @@
   </p>
 
   <p align="center">
-    <b><a href="https://crussant.vercel.app/">🔗 View Live Experience: crussant.vercel.app →</a></b>
+    <b><a href="https://crussant.vercel.app/">View Live Experience: crussant.vercel.app →</a></b>
   </p>
 
 </div>
 
 ---
 
-## 🌟 The Problem We Solved
+## The Problem We Solved
 
 Interactive scroll-scrubbed product stories (Apple-style 3D showcases) are one of the most engaging UX patterns on the modern web. However, traditional implementations face a major technical hurdle:
 
-- ❌ **`<video>` Element Seeking Stutters**: Direct time-seeking (`video.currentTime = t`) requires decoding from the nearest I-frame forward. During fast or reverse scrolling, this introduces **100ms–300ms latency**, causing dropped frames and visible stutter.
-- ❌ **DOM `<img>` Swapping Causes Reflows**: Swapping `<img src="..." />` tags on scroll triggers continuous browser layout recalibration, memory thrashing, and white flash artifacts.
-- ❌ **Cluttered UI Cards Break Immersion**: Typical sites wrap text in frosted glass cards that obscure the product journey rather than integrating dynamically with the composition.
+- **`<video>` Element Seeking Stutters**: Direct time-seeking (`video.currentTime = t`) requires decoding from the nearest I-frame forward. During fast or reverse scrolling, this introduces **100ms–300ms latency**, causing dropped frames and visible stutter.
+- **DOM `<img>` Swapping Causes Reflows**: Swapping `<img src="..." />` tags on scroll triggers continuous browser layout recalibration, memory thrashing, and white flash artifacts.
+- **Cluttered UI Cards Break Immersion**: Typical sites wrap text in frosted glass cards that obscure the product journey rather than integrating dynamically with the composition.
 
 ---
 
-## 💡 The Crussant Architecture
+  ![Cover](https://i.ibb.co/7dXytKZ2/image.png)
+
+---
+
+## The Crussant Architecture
 
 **Crussant** replaces runtime video seeking with an in-memory, canvas-driven sequence pipeline paired with dynamic spatial typography:
 
@@ -59,7 +63,7 @@ Interactive scroll-scrubbed product stories (Apple-style 3D showcases) are one o
 
 ---
 
-## 🚀 Key Innovations & Features
+## Key Innovations & Features
 
 ### 1. Zero-Latency Canvas Render Pipeline
 - **Continuous Frame Scrubbing**: Renders an unbroken sequence from raw dough to golden finished pastry across an 80-frame WebP timeline.
@@ -89,7 +93,7 @@ Interactive scroll-scrubbed product stories (Apple-style 3D showcases) are one o
 
 ---
 
-## ⚡ Performance Comparison
+## Performance Comparison
 
 | Metric | Standard `<video>` Scrubbing | DOM `<img>` Tag Swapping | **Crussant Engine (Canvas + WebP)** |
 |---|:---:|:---:|:---:|
@@ -100,7 +104,7 @@ Interactive scroll-scrubbed product stories (Apple-style 3D showcases) are one o
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Core**: React 19, TypeScript, Vite 8
 - **Animation & Motion**: GSAP 3.15, ScrollTrigger, RequestAnimationFrame Ticking
@@ -110,7 +114,7 @@ Interactive scroll-scrubbed product stories (Apple-style 3D showcases) are one o
 
 ---
 
-## 📦 Project Structure
+## Project Structure
 
 ```text
 crussant/
@@ -141,7 +145,7 @@ crussant/
 
 ---
 
-## 🚦 Getting Started
+## Getting Started
 
 ### Live Demo
 Experience the production build directly: [**https://crussant.vercel.app/**](https://crussant.vercel.app/)
@@ -168,17 +172,17 @@ Visit `http://localhost:5173` to explore the experience.
 
 ---
 
-## 🧪 Reusability
+## Reusability
 
 The scroll-scrub engine built in this project is entirely **product-agnostic**. It can be adapted to any visual storytelling domain:
-- 👟 **Footwear**: Exploded sneaker component assembly.
-- 🚗 **Automotive**: 360-degree exterior rotation into interior cockpit reveal.
-- 📱 **Consumer Tech**: Hardware unibody teardown and chip architecture.
-- 🧴 **Cosmetics**: Botanical ingredient harvest into serum formulation.
+- **Footwear**: Exploded sneaker component assembly.
+- **Automotive**: 360-degree exterior rotation into interior cockpit reveal.
+- **Consumer Tech**: Hardware unibody teardown and chip architecture.
+- **Cosmetics**: Botanical ingredient harvest into serum formulation.
 
 ---
 
-## 👥 Authors & Acknowledgments
+## Authors & Acknowledgments
 
 Crafted with passion for high-performance web craft.
 
@@ -186,5 +190,5 @@ Crafted with passion for high-performance web craft.
 - **Inspiration**: WildCrumb & Piozza interactive scroll showcases
 
 <div align="center">
-  <sub>Built with 🥐 & ☕ — Designed to set a new benchmark for web storytelling.</sub>
+  <sub>Built with ❤ — Designed to set a new benchmark for web storytelling.</sub>
 </div>
